@@ -1,4 +1,5 @@
 Repsoitorio poo 2024 ignacio galvan.  
+  
 Ejercicio 1:  
   
 Instalar Qt. Lo cual incluye las herramientas de compilación C++, la biblioteca Qt y Qt Creator.  
