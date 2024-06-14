@@ -2,37 +2,31 @@
 #define LOGIN_H
 
 #include <QWidget>
-#include <QGridLayout>
+#include <QNetworkAccessManager>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QDebug>
+#include <QNetworkReply>
+#include "admindb.h" // Incluir la cabecera de AdminDB
 
-#include<QNetworkRequest>
-#include<QNetworkReply>
-
-#include<QUrl>
-#include<QByteArray>
-
-class Login : public QWidget
-{
+class Login : public QWidget {
     Q_OBJECT
-
 public:
     explicit Login(QWidget *parent = nullptr);
-    void mostrarTemperatura(bool mostrar); // Método para mostrar u ocultar la temperatura
+
+    void mostrarTemperatura(bool mostrar);
 
 signals:
     void usuarioValido();
 
 protected:
-    void paintEvent(QPaintEvent *); // Método para dibujar el fondo
+    void paintEvent(QPaintEvent *);
 
 private slots:
     void slot_ValidarUsuario();
-    void slot_descargafinalizadaClima(QNetworkReply * reply);
-    void slot_alternarTemperatura(); // Slot para alternar la visibilidad de la temperatura
-    void slot_descargafinalizada(QNetworkReply * reply);
+    void slot_alternarTemperatura();
+    void slot_descargafinalizadaClima(QNetworkReply *reply);
+    void slot_descargafinalizada(QNetworkReply *reply);
 
 private:
     QLabel *lUsuario;
@@ -41,12 +35,11 @@ private:
     QLineEdit *leUsuario;
     QLineEdit *leClave;
     QPushButton *pbValidar;
-    QPushButton *pbAlternarTemperatura; // Botón para alternar la visibilidad de la temperatura
-    QGridLayout *layout;
-
-    QNetworkAccessManager * manager;
-    QNetworkAccessManager * managerClima;
+    QPushButton *pbAlternarTemperatura;
+    QNetworkAccessManager *manager;
+    QNetworkAccessManager *managerClima;
     QImage im;
+    AdminDB *adminDB; // Añadir el objeto AdminDB
 };
 
 #endif // LOGIN_H

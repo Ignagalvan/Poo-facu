@@ -14,6 +14,9 @@ class Formulario : public QWidget
 public:
     explicit Formulario(QWidget *parent = nullptr);
 
+private slots:
+    void slot_Guardar();
+
 private:
     QLabel *lLegajo;
     QLabel *lNombre;

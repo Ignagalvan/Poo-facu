@@ -18,4 +18,12 @@ Formulario::Formulario(QWidget *parent) : QWidget(parent)
     layout->addWidget(lApellido);
     layout->addWidget(leApellido);
     layout->addWidget(pbGuardar);
+
+    connect(pbGuardar, &QPushButton::pressed, this, &Formulario::slot_Guardar);
+}
+
+void Formulario::slot_Guardar()
+{
+    // Aquí puedes agregar cualquier lógica para guardar datos antes de cerrar la ventana
+    this->close();
 }
